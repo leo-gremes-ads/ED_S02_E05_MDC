@@ -1,7 +1,7 @@
 package view;
 
-import java.util.Scanner;
 import controller.MDC;
+import controller.ValidaEntrada;
 
 public class Principal
 {
@@ -9,13 +9,10 @@ public class Principal
 	{
 		int x, y, m;
 		MDC mdc = new MDC();
-		Scanner s = new Scanner(System.in);
+		ValidaEntrada ve = new ValidaEntrada();
 		
-		System.out.print("Digite um número: ");
-		x = s.nextInt();
-		System.out.print("Digite outro número: ");
-		y = s.nextInt();
-		s.close();
+		x = ve.validaEntrada("Digite um número: ", false);
+		y = ve.validaEntrada("Digite outro número: ", true);
 		m = mdc.maxDivComum(x,  y);
 		System.out.println("O Máximo divisor comum é: " + m);
 	}
